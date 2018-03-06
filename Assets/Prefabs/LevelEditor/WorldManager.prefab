@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000010280962132}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010280962132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4000011782295300}
+  - component: {fileID: 114000010679150746}
+  m_Layer: 0
+  m_Name: WorldManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000011782295300
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010280962132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 490.48416, y: 335.87964, z: 243.62732}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114000010679150746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010280962132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ec012614a30654aa83e35dd9827b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2147483648
+  wireframeMaterial: {fileID: 2100000, guid: d698790d3facd3d4289a13fa1243030a, type: 2}
+  occlusionMaterial: {fileID: 2100000, guid: df172103f5fba4a4d8636aeca60cb0d7, type: 2}
+  consoleObject: {fileID: 1000010835764004, guid: 3144c9811bd8a5240952b871b7eb7c41,
+    type: 2}
+  spawnPoint: {fileID: 1000013320422500, guid: 6ffa11e86af2f674c9ccb3a24183f60c, type: 2}
+  pathFinder: {fileID: 1000012207953550, guid: 2f67e227777f36841bca2340dbf46aae, type: 2}
+  hotspot: {fileID: 1487233801077248, guid: 5bbabc388fca10f48bc52abcb5a9c1d0, type: 2}
+  scoreboard: {fileID: 1000013625863628, guid: af26d2faa71501d4fa65d988ade55879, type: 2}
+  stemBase: {fileID: 1000014116351386, guid: 80c28c45482638747b400a7231b08c74, type: 2}
+  infiniteAmmoBox: {fileID: 1000010546574450, guid: 7b820354169c8624ea532976a0ab011a,
+    type: 2}
+  mist: {fileID: 1000013414122328, guid: 9f57e7c0e6c84c54ba0621dca48a8f82, type: 2}
+  mistEnd: {fileID: 1624830182131382, guid: 595fbe36ad61664458797c25b9e475c7, type: 2}
+  target: {fileID: 1479198290131508, guid: 179b40d9cc6354a49973fd1623ff306e, type: 2}
+  metalBarrel: {fileID: 1655130432139548, guid: 2742409dc5b1ea141892776647fd39d2,
+    type: 2}
+  roomModel: {fileID: 1011895807291726, guid: 700c9e544326f1f4eafb8a253c5d0b2b, type: 2}
+  startButton: {fileID: 1808320564403494, guid: 5ec67fe8f397c2b4b85273b5cd607778,
+    type: 2}

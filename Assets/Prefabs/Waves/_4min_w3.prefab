@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000010314265188}
+  m_IsPrefabParent: 1
+--- !u!1 &1000010314265188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4000010940708144}
+  - component: {fileID: 114000012887769814}
+  m_Layer: 0
+  m_Name: _4min_w3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010940708144
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010314265188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114000012887769814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010314265188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260665c5561217643bdbffdfa0bede05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WavetimeinSeconds: 600
+  maxZombiesOnScreen: 6
+  percentageOfSpawns: 1
+  CoolDownTime: 2
+  zombies:
+  - {fileID: 1298549884455200, guid: e3be504ea084ade46bcbd2acaa8fd985, type: 2}
+  - {fileID: 1502171493959316, guid: 74e5b4dc1cf03d2428be33f6f7f49627, type: 2}
+  - {fileID: 1190666322127918, guid: 683d93175b2302945b0914918456f1f1, type: 2}
+  - {fileID: 1855052498897864, guid: 954ec28cf306aea428fdff9ed2f70136, type: 2}
+  - {fileID: 1810530693645472, guid: 4a5fb43aa0712a94a96c95a2718ea04b, type: 2}
+  - {fileID: 1000013430754474, guid: a3de5425b7779c648a03807a4aae8013, type: 2}
+  - {fileID: 1111764818904310, guid: d24e2af7a00697f4499ecd3337b76414, type: 2}
+  - {fileID: 1190666322127918, guid: 683d93175b2302945b0914918456f1f1, type: 2}
+  - {fileID: 1896830759029440, guid: 2754c50ddf2234a42948ee1018411982, type: 2}
+  - {fileID: 1259030874191648, guid: 9ec61b17496067c48870ab946231e10a, type: 2}
+  - {fileID: 1344831266985980, guid: 0915029b1cff5bf448ea3f00d2d373a0, type: 2}
+  - {fileID: 1896830759029440, guid: 2754c50ddf2234a42948ee1018411982, type: 2}
+  - {fileID: 1731752476028602, guid: 16ecfa5c24a4c544bb1b36cbc6387c43, type: 2}
+  - {fileID: 1905283209955124, guid: 9e8f2a675d9bf08479c926c9725565b6, type: 2}
+  specialZombies:
+  - {fileID: 1965285715854912, guid: 38c5606187d890c4a9ec422f354aa09b, type: 2}
+  - {fileID: 1965285715854912, guid: 38c5606187d890c4a9ec422f354aa09b, type: 2}
+  IsspecialZombiesWave: 1
+  SpecialZombieExtraHitPoints: 160
+  minZombieHP: 100
+  maxZombieHP: 160
+  WaveGun: 3

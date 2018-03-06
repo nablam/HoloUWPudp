@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000011194767938}
+  m_IsPrefabParent: 1
+--- !u!1 &1000011194767938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4000012986685876}
+  - component: {fileID: 114000013287544436}
+  - component: {fileID: 82090934593608438}
+  m_Layer: 11
+  m_Name: PistolBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000012986685876
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011194767938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82090934593608438
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011194767938}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114000013287544436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011194767938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6171ab25c9537b946a526b7a77a83889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHoles_Wood:
+  - {fileID: 1672678382483156, guid: 061b409749b40ab4384eabc74679e0a1, type: 2}
+  - {fileID: 1121521881538260, guid: a828485f77adf924b9e3c46abd7b4322, type: 2}
+  bulletHoles_Metal:
+  - {fileID: 1935412549055630, guid: 6ca90bb5415b2044cac5ba53346eae65, type: 2}
+  - {fileID: 1515847332949288, guid: d3501394539a09140ae15b34bf6c9dca, type: 2}
+  damage: 10
+  RaycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 2147492353
+  enemyLayer: 9
+  pickupLayer: 13
+  bulletSounds:
+  - {fileID: 8300000, guid: eef53daa081b4304cb9186ee252c3b43, type: 3}
+  bulletHoles:
+  - {fileID: 1318023608098850, guid: 8ad38b846491ee54589616779adace2d, type: 2}
+  - {fileID: 1363121152738952, guid: 60191bcbca06c5248aa288a368906f09, type: 2}
+  - {fileID: 1963081227418154, guid: 86fc907f93b8e654bacfb4a2e07f9703, type: 2}
+  bulletParticles:
+  - {fileID: 100000, guid: 89525715262953844a40648bc626df55, type: 2}
+  - {fileID: 100000, guid: 72bfe83995b92e94fad5ba375db97947, type: 2}
+  - {fileID: 100000, guid: baa7bc3f5a09228449b60e046bcab0ab, type: 2}
