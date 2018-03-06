@@ -64,9 +64,9 @@ PlayerSettings:
   useOSAutorotation: 1
   use32BitDisplayBuffer: 1
   disableDepthAndStencilBuffers: 0
-  defaultIsFullScreen: 1
+  defaultIsFullScreen: 0
   defaultIsNativeResolution: 1
-  runInBackground: 0
+  runInBackground: 1
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -507,14 +507,14 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: HoloUWPudp
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80fd68f07dd4d401
   metroApplicationDescription: HoloUWPudp
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: HoloUWPudp
   metroCommandLineArgsFile: 
   metroTileShowName: 0
   metroMediumTileShowName: 0
