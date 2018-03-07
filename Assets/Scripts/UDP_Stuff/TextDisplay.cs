@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// @Author Nabil Lamriben ©2018
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

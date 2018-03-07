@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿// @Author Nabil Lamriben ©2018
+using UnityEngine;
 using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 using System.Linq;
 using HoloToolkit.Unity;
-using System.Collections.Generic;
 using UnityEngine.Events;
 
 #if !UNITY_EDITOR
@@ -13,33 +14,44 @@ using Windows.Networking.Connectivity;
 using Windows.Networking;
 #endif
 
+
 [System.Serializable]
-public class UDPMessageEvent : UnityEvent<string, string, byte[]>
+public class EventUDPMessage : UnityEvent<string, string, byte[]>
 {
 
 }
 
-public class UDPCommunication : Singleton<UDPCommunication>
+public class UdpComm : Singleton<UdpComm>
 {
-    [Tooltip("port to listen for incoming data")]
-    public string internalPort = "12345";
+    [Tooltip("port to listen for incoming data my ear")]
+    public string MyInternalPort_aka_MyEar = "12345";
 
     [Tooltip("IP-Address for sending")]
-    public string externalIP = "192.168.17.110";
+    public string ExternalIP_aka_IpofMyAudience = "192.168.1.2";
 
-    [Tooltip("Port for sending")]
-    public string externalPort = "12346";
+    [Tooltip("Port for sending Ear of my Audience")]
+    public string ExternalPortTosendTo = "12346";
 
     [Tooltip("Send a message at Startup")]
     public bool sendPingAtStart = true;
 
-    [Tooltip("Conten of Ping")]
+    [Tooltip("Content of Ping")]
     public string PingMessage = "cliked ";
 
     [Tooltip("Function to invoke at incoming packet")]
-    public UDPMessageEvent udpEvent = null;
+    public EventUDPMessage udpEvent = null;
 
     private readonly Queue<Action> ExecuteOnMainThread = new Queue<Action>();
+
+
+    public bool IsMSI_Server;
+    public bool IsMSI_Client;
+
+    public bool IsJalt_Server;
+    public bool IsJalt_Client;
+    public bool IsHolo_Client;
+
+
 
 
 #if !UNITY_EDITOR
@@ -51,9 +63,9 @@ public class UDPCommunication : Singleton<UDPCommunication>
     }
 
     //Send an UDP-Packet
-    public async void SendUDPMessage(string HostIP, string HostPort, byte[] data)
+    public async void SendMessageUDP(string HostIP, string HostPort, byte[] data)
     {
-        await _SendUDPMessage(HostIP, HostPort, data);
+        await TASK_SendMessageUDP(HostIP, HostPort, data);
     }
 
 
@@ -64,7 +76,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     {
         if (udpEvent == null)
         {
-            udpEvent = new UDPMessageEvent();
+            udpEvent = new EventUDPMessage();
             udpEvent.AddListener(UDPMessageReceived);
         }
 
@@ -85,7 +97,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
                     hn.IPInformation?.NetworkAdapter != null && hn.IPInformation.NetworkAdapter.NetworkAdapterId
                     == icp.NetworkAdapter.NetworkAdapterId);
 
-            await socket.BindEndpointAsync(IP, internalPort);
+            await socket.BindEndpointAsync(IP, MyInternalPort_aka_MyEar);
         }
         catch (Exception e)
         {
@@ -95,16 +107,16 @@ public class UDPCommunication : Singleton<UDPCommunication>
         }
 
         if(sendPingAtStart)
-            SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
+            SendMessageUDP(ExternalIP_aka_IpofMyAudience, ExternalPortTosendTo, Encoding.UTF8.GetBytes(PingMessage));
 
     }
 
 
 
 
-    private async System.Threading.Tasks.Task _SendUDPMessage(string externalIP, string externalPort, byte[] data)
+    private async System.Threading.Tasks.Task TASK_SendMessageUDP(string argExternalIP, string argExternalPort, byte[] data)
     {
-        using (var stream = await socket.GetOutputStreamAsync(new Windows.Networking.HostName(externalIP), externalPort))
+        using (var stream = await socket.GetOutputStreamAsync(new Windows.Networking.HostName(argExternalIP), argExternalPort))
         {
             using (var writer = new Windows.Storage.Streams.DataWriter(stream))
             {
@@ -123,7 +135,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     }
 
-    public void SendUDPMessage(string HostIP, string HostPort, byte[] data)
+    public void SendMessageUDP(string HostIP, string HostPort, byte[] data)
     {
 
     }
@@ -153,7 +165,6 @@ public class UDPCommunication : Singleton<UDPCommunication>
         while (ExecuteOnMainThread.Count > 0)
         {
             ExecuteOnMainThread.Dequeue().Invoke();
-
         }
     }
 
@@ -161,20 +172,17 @@ public class UDPCommunication : Singleton<UDPCommunication>
     private void Socket_MessageReceived(Windows.Networking.Sockets.DatagramSocket sender,
         Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs args)
     {
-         Debug.Log("GOT MESSAGE FROM: " + args.RemoteAddress.DisplayName);
-        //Read the message that was received from the UDP  client.
-        Stream streamIn = args.GetDataStream().AsStreamForRead();
-        MemoryStream ms = ToMemoryStream(streamIn);
-        byte[] msgData = ms.ToArray();
-
+        Stream incommingStream = args.GetDataStream().AsStreamForRead();
+        MemoryStream memstream = ToMemoryStream(incommingStream);
+        byte[] msgData = memstream.ToArray();
 
         if (ExecuteOnMainThread.Count == 0)
         {
             ExecuteOnMainThread.Enqueue(() =>
             {
-                Debug.Log("ENQEUED ");
+                Debug.Log("nq ");
                 if (udpEvent != null)
-                    udpEvent.Invoke(args.RemoteAddress.DisplayName, internalPort, msgData);
+                    udpEvent.Invoke(args.RemoteAddress.DisplayName, MyInternalPort_aka_MyEar, msgData);
             });
         }
     }

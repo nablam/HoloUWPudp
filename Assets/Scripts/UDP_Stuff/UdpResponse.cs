@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UDPResponse : MonoBehaviour
+public class UdpResponse : MonoBehaviour
 {
 
 
     public TextMesh tm = null;
 
-    public void ResponseToUDPPacket(string incomingIP, string incomingPort, byte[] data)
+    public void ResponseToUDPPacket(string argIncomingIP, string argIncomingPort, byte[] data)
     {
 
         if (tm != null)
@@ -17,8 +17,8 @@ public class UDPResponse : MonoBehaviour
 #if !UNITY_EDITOR
 
         //ECHO 
-        UDPCommunication comm = UDPCommunication.Instance;
-        comm.SendUDPMessage(incomingIP, comm.externalPort, data);
+        UdpComm comm = UdpComm.Instance;
+        comm.SendMessageUDP(argIncomingIP, comm.ExternalPortTosendTo, data);
 
 #endif
     }

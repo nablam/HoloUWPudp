@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33075329251437136}
   - component: {fileID: 65330303971102684}
   - component: {fileID: 23550016657037692}
-  - component: {fileID: 114288924780751370}
-  - component: {fileID: 114255805904571730}
+  - component: {fileID: 114591255006646028}
+  - component: {fileID: 114426990963990102}
   m_Layer: 0
   m_Name: GameCube
   m_TagString: Untagged
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661435500294000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.22, z: 0.93}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4307766283324448}
@@ -165,7 +165,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1855632578808140}
-  m_Text: i am game
+  m_Text: iam game
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -179,7 +179,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114255805904571730
+--- !u!114 &114426990963990102
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -187,18 +187,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661435500294000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b2896cc32824545a56527e05459e19, type: 3}
+  m_Script: {fileID: 11500000, guid: bdc8bd29695e5c341b1bd2bdb5db2cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  internalPort: 12345
-  externalIP: 192.168.1.6
-  externalPort: 12346
+  tm: {fileID: 102050505342359818}
+--- !u!114 &114591255006646028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661435500294000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ab180f694fd154bbddc92e440eb37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyInternalPort_aka_MyEar: 12346
+  ExternalIP_aka_IpofMyAudience: 192.168.1.6
+  ExternalPortTosendTo: 12345
   sendPingAtStart: 1
-  PingMessage: hello
+  PingMessage: new
   udpEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114288924780751370}
+      - m_Target: {fileID: 114426990963990102}
         m_MethodName: ResponseToUDPPacket
         m_Mode: 0
         m_Arguments:
@@ -209,17 +221,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UDPMessageEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: EventUDPMessage, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &114288924780751370
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1661435500294000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3379d88c83787ed46ae2d0d2e1e69ca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tm: {fileID: 102050505342359818}
+  IsMSI_Server: 0
+  IsMSI_Client: 0
+  IsJalt_Server: 0
+  IsJalt_Client: 0
+  IsHolo_Client: 0
