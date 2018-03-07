@@ -24,14 +24,18 @@ public class UDPCommunication : Singleton<UDPCommunication>
     [Tooltip("port to listen for incoming data")]
     public string internalPort = "12345";
 
-    [Tooltip("IP-Address for sending")]
-    public string externalIP = "192.168.17.110";
+    [Tooltip("IP-Address for sending to MSI")]
+    public string externalIP = "192.168.1.2";
+//    public string externalIP_HL15 = "192.168.1.5";
+
 
     [Tooltip("Port for sending")]
     public string externalPort = "12346";
 
     [Tooltip("Send a message at Startup")]
     public bool sendPingAtStart = true;
+
+    public bool sendTO_MSI = true;
 
     [Tooltip("Conten of Ping")]
     public string PingMessage = "hello";
@@ -99,7 +103,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     }
 
-
+    
 
 
     private async System.Threading.Tasks.Task _SendUDPMessage(string externalIP, string externalPort, byte[] data)
