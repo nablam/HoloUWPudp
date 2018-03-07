@@ -39,6 +39,9 @@ GameObject:
   - component: {fileID: 33651739998721126}
   - component: {fileID: 135601298367523128}
   - component: {fileID: 23042809548750424}
+  - component: {fileID: 114677761910905010}
+  - component: {fileID: 114725432215756010}
+  - component: {fileID: 114095934482676808}
   m_Layer: 0
   m_Name: ServerSphere
   m_TagString: Untagged
@@ -165,6 +168,52 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114095934482676808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892755568856398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e93347b2471e048bb0dcccac5b916b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UdpCOMM: {fileID: 114677761910905010}
+  TextDisplayer: {fileID: 114725432215756010}
+--- !u!114 &114677761910905010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892755568856398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b2896cc32824545a56527e05459e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  internalPort: 12345
+  externalIP: 192.168.1.2
+  externalPort: 12346
+  sendPingAtStart: 1
+  PingMessage: hellodude
+  udpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UDPMessageEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114725432215756010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1892755568856398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df453f29b40709b4ba61a15ee30f251e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tm: {fileID: 102942507314814636}
 --- !u!135 &135601298367523128
 SphereCollider:
   m_ObjectHideFlags: 1

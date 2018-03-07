@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -108,11 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!102 &108554276 stripped
-TextMesh:
-  m_PrefabParentObject: {fileID: 102050505342359818, guid: c159986cda386684e8f987bb3a88bec8,
-    type: 2}
-  m_PrefabInternal: {fileID: 857571472}
 --- !u!1 &252097443
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,41 +678,3 @@ MonoBehaviour:
   minimumY: -60
   maximumY: 60
   reti: {fileID: 0}
---- !u!1 &2000778757 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1661435500294000, guid: c159986cda386684e8f987bb3a88bec8,
-    type: 2}
-  m_PrefabInternal: {fileID: 857571472}
---- !u!114 &2000778758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2000778757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3379d88c83787ed46ae2d0d2e1e69ca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tm: {fileID: 108554276}
---- !u!114 &2000778759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2000778757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b2896cc32824545a56527e05459e19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalPort: 12345
-  externalIP: 192.168.1.2
-  externalPort: 12346
-  sendPingAtStart: 1
-  PingMessage: hello
-  udpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UDPMessageEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
