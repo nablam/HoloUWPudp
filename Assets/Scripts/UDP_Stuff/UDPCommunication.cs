@@ -21,17 +21,19 @@ public class UDPMessageEvent : UnityEvent<string, string, byte[]>
 
 public class UDPCommunication : Singleton<UDPCommunication>
 {
-    [Tooltip("port to listen for incoming data")]
-    public string internalPort = "12345";
 
-    [Tooltip("IP-Address for sending")]
-    public string externalIP = "192.168.17.110";
+    public TextMesh MyInfo;
+     string internalPort = "";
 
-    [Tooltip("Port for sending")]
-    public string externalPort = "12346";
+     string externalIP = "";
 
-    [Tooltip("Send a message at Startup")]
-    public bool sendPingAtStart = true;
+    
+     string externalPort = "";
+
+    UDPInitSctuct _MyUdpTructure;
+
+    public string GetExternalPort() { return externalPort; }
+    public string GetExternalIP() { return externalIP; }
 
     [Tooltip("Conten of Ping")]
     public string PingMessage = "cliked ";
@@ -40,6 +42,63 @@ public class UDPCommunication : Singleton<UDPCommunication>
     public UDPMessageEvent udpEvent = null;
 
     private readonly Queue<Action> ExecuteOnMainThread = new Queue<Action>();
+
+    public bool MeIsServer;
+
+    //my other is a
+    public UDPmachine otherMachineType;
+
+    void BuildMyStructure()
+    {
+        string _MyEAR="";
+        string _AudienceIP = "";
+        string _AudienceEAR = "";
+        //if im a client , all i need to specify is my listenport which will always be 12345
+        if (!MeIsServer)
+        {
+            _MyEAR = "12345";
+            _AudienceIP = "";
+            _AudienceEAR = "";
+        }
+        else
+        {
+            _AudienceEAR = "12345";
+            //who am i calling 
+            switch (otherMachineType)
+            {
+                case UDPmachine.MSI_2:
+                    _AudienceIP = "192.168.1.2";
+                    break;
+                case UDPmachine.Jalt_6:
+                    _AudienceIP = "192.168.1.6";
+                    break;
+                case UDPmachine.Holo_5:
+                    _AudienceIP = "192.168.1.5";
+                    break;
+
+            }
+
+        }
+
+        internalPort = _MyEAR;
+        externalIP = _AudienceIP;
+        externalPort = _AudienceEAR;
+
+        UpdateInfoText();
+    }
+
+    void UpdateInfoText() {
+        if (!MeIsServer)
+        {
+            MyInfo.text = "listening to " + otherMachineType.ToString() + " on my internal port " + internalPort;
+        }
+        else {
+            MyInfo.text = "Serving" + otherMachineType.ToString() + " at  " + externalIP+  " to its port "+ externalPort;
+        }
+    }
+ 
+
+    void SetupClientInternalPort() { }
 
 
 #if !UNITY_EDITOR
@@ -62,6 +121,8 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     async void Start()
     {
+    BuildMyStructure();
+          
         if (udpEvent == null)
         {
             udpEvent = new UDPMessageEvent();
@@ -102,9 +163,9 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
 
 
-    private async System.Threading.Tasks.Task _SendUDPMessage(string externalIP, string externalPort, byte[] data)
+    private async System.Threading.Tasks.Task _SendUDPMessage(string argexternalIP, string argexternalPort, byte[] data)
     {
-        using (var stream = await socket.GetOutputStreamAsync(new Windows.Networking.HostName(externalIP), externalPort))
+        using (var stream = await socket.GetOutputStreamAsync(new Windows.Networking.HostName(argexternalIP), argexternalPort))
         {
             using (var writer = new Windows.Storage.Streams.DataWriter(stream))
             {

@@ -129,6 +129,13 @@ public enum ReloadMeterState {
     Sleeping
 }
 
+public enum UDPmachine
+{
+    MSI_2,
+    Jalt_6,
+    Holo_5,
+ 
+}
 
 //esp 12 e
 /// points = 0;

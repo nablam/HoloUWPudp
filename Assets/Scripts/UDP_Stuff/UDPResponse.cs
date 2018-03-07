@@ -18,7 +18,7 @@ public class UDPResponse : MonoBehaviour
 
         //ECHO 
         UDPCommunication comm = UDPCommunication.Instance;
-        comm.SendUDPMessage(incomingIP, comm.externalPort, data);
+        comm.SendUDPMessage(incomingIP, comm.GetExternalPort(), data);
 
 #endif
     }

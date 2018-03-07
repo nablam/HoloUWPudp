@@ -215,58 +215,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d845d59701652742acd907e03ef197c, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &857571472
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4814175665773242, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 102050505342359818, guid: c159986cda386684e8f987bb3a88bec8,
-        type: 2}
-      propertyPath: m_Text
-      value: i am game msi
-      objectReference: {fileID: 0}
-    - target: {fileID: 114255805904571730, guid: c159986cda386684e8f987bb3a88bec8,
-        type: 2}
-      propertyPath: externalIP
-      value: 192.168.1.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c159986cda386684e8f987bb3a88bec8, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1781948848
 GameObject:
   m_ObjectHideFlags: 0
