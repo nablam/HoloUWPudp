@@ -34,7 +34,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     public bool sendPingAtStart = true;
 
     [Tooltip("Conten of Ping")]
-    public string PingMessage = "hello";
+    public string PingMessage = "cliked ";
 
     [Tooltip("Function to invoke at incoming packet")]
     public UDPMessageEvent udpEvent = null;
