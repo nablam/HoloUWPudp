@@ -259,6 +259,26 @@ Prefab:
       propertyPath: m_Text
       value: hi, my name is server
       objectReference: {fileID: 0}
+    - target: {fileID: 114677761910905010, guid: 14bda95df6cfe1748add44a91c772686,
+        type: 2}
+      propertyPath: PingMessage
+      value: cliiiiked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677761910905010, guid: 14bda95df6cfe1748add44a91c772686,
+        type: 2}
+      propertyPath: internalPort
+      value: 12346
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677761910905010, guid: 14bda95df6cfe1748add44a91c772686,
+        type: 2}
+      propertyPath: externalPort
+      value: 12345
+      objectReference: {fileID: 0}
+    - target: {fileID: 114677761910905010, guid: 14bda95df6cfe1748add44a91c772686,
+        type: 2}
+      propertyPath: externalIP
+      value: 192.168.1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14bda95df6cfe1748add44a91c772686, type: 2}
   m_IsPrefabParent: 0
