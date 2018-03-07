@@ -17,8 +17,8 @@ public class UDPResponse : MonoBehaviour
 #if !UNITY_EDITOR
 
         //ECHO 
-        UDPCommunication comm = UDPCommunication.Instance;
-        comm.SendUDPMessage(incomingIP, comm.GetExternalPort(), data);
+        //UDPCommunication comm = UDPCommunication.Instance;
+       // comm.SendUDPMessage(incomingIP, comm.GetExternalPort(), data);
 
 #endif
     }

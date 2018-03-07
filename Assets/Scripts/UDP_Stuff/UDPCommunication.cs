@@ -57,11 +57,12 @@ public class UDPCommunication : Singleton<UDPCommunication>
         if (!MeIsServer)
         {
             _MyEAR = "12345";
-            _AudienceIP = "";
-            _AudienceEAR = "";
+            _AudienceIP = "192.168.1.2";
+            _AudienceEAR = "12346";
         }
         else
         {
+            _MyEAR = "12346";
             _AudienceEAR = "12345";
             //who am i calling 
             switch (otherMachineType)
@@ -100,8 +101,35 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     void SetupClientInternalPort() { }
 
+  
+
+    private void Awake()
+    {
+        BuildMyStructure();
+    }
 
 #if !UNITY_EDITOR
+
+      private void OnEnable()
+    {
+
+        if (udpEvent == null)
+        {
+            udpEvent = new UDPMessageEvent();
+            udpEvent.AddListener(UDPMessageReceived);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (udpEvent != null)
+        {
+            
+            udpEvent.RemoveAllListeners();
+        }
+    }
+
+
 
     //we've got a message (data[]) from (host) in case of not assigned an event
     void UDPMessageReceived(string host, string port, byte[] data)
@@ -121,13 +149,8 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     async void Start()
     {
-    BuildMyStructure();
-          
-        if (udpEvent == null)
-        {
-            udpEvent = new UDPMessageEvent();
-            udpEvent.AddListener(UDPMessageReceived);
-        }
+    
+      
 
 
         Debug.Log("Waiting for a connection...");
@@ -155,7 +178,6 @@ public class UDPCommunication : Singleton<UDPCommunication>
             return;
         }
 
-        if(sendPingAtStart)
             SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
 
     }
@@ -178,6 +200,8 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
 
 #else
+
+
     // to make Unity-Editor happy :-)
     void Start()
     {
