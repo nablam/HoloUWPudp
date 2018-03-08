@@ -177,9 +177,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
             Debug.Log(SocketError.GetStatus(e.HResult).ToString());
             return;
         }
-
-            //SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
-
+        //SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
     }
 
 
@@ -220,7 +218,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     {
         try
         {                                         // Read and write in
-            byte[] block = new byte[0x1000];       // blocks of 4K.
+            byte[] block = new byte[0x4000];       // blocks of 4K. 1000
             MemoryStream ms = new MemoryStream();
             while (true)
             {

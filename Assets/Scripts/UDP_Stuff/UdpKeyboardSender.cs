@@ -21,17 +21,22 @@ public class UdpKeyboardSender : MonoBehaviour {
         if (toggleAutosend)
         {
             cnt++;
-            UdpCOMM.SendUDPMessage(UdpCOMM.GetExternalIP(), UdpCOMM.GetExternalPort(), Encoding.UTF8.GetBytes("auto send " + cnt.ToString()));
 
-            TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
+            if (cnt % 1 == 0)
+            {
+                UdpCOMM.SendUDPMessage(UdpCOMM.GetExternalIP(), UdpCOMM.GetExternalPort(), Encoding.UTF8.GetBytes("auto send " + cnt.ToString()));
+                TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
+
+            }
+
         }
         else {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 cnt++;
-                UdpCOMM.SendUDPMessage(UdpCOMM.GetExternalIP(), UdpCOMM.GetExternalPort(), Encoding.UTF8.GetBytes(UdpCOMM.PingMessage + cnt.ToString()));
+                UdpCOMM.SendUDPMessage(UdpCOMM.GetExternalIP(), UdpCOMM.GetExternalPort(), Encoding.UTF8.GetBytes("auto send " + cnt.ToString()));
 
-                TextDisplayer.DisplayToTextMesh("sending " + UdpCOMM.PingMessage + cnt.ToString());
+                TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
             }
         }
 
