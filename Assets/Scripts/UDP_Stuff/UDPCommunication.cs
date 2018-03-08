@@ -223,7 +223,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     {
         try
         {                                         // Read and write in
-            byte[] block = new byte[0x4000];       // blocks of 4K. 1000
+            byte[] block = new byte[0x1000];       // blocks of 4K. 1000
             MemoryStream ms = new MemoryStream();
             while (true)
             {
@@ -249,7 +249,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     private void Socket_MessageReceived(Windows.Networking.Sockets.DatagramSocket sender,
         Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs args)
     {
-         Debug.Log("GOT MESSAGE FROM: " + args.RemoteAddress.DisplayName);
+     //   Console3D.Instance.LOGit("GOT MESSAGE FROM: " + args.RemoteAddress.DisplayName);
         //Read the message that was received from the UDP  client.
         Stream streamIn = args.GetDataStream().AsStreamForRead();
         MemoryStream ms = ToMemoryStream(streamIn);
@@ -260,7 +260,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
         {
             ExecuteOnMainThread.Enqueue(() =>
             {
-                Debug.Log("ENQEUED ");
+          //      Console3D.Instance.LOGit("ENQEUED ");
                 if (udpEvent != null)
                     udpEvent.Invoke(args.RemoteAddress.DisplayName, internalPort, msgData);
             });
