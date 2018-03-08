@@ -91,6 +91,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     void UpdateInfoText() {
         if (!MeIsServer)
         {
+           
             MyInfo.text = "listening to " + otherMachineType.ToString() + " on my internal port " + internalPort;
         }
         else {
@@ -135,6 +136,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
     void UDPMessageReceived(string host, string port, byte[] data)
     {
         Debug.Log("GOT MESSAGE FROM: " + host + " on port " + port + " " + data.Length.ToString() + " bytes ");
+     Console3D.Instance.LOGit("GOT MESSAGE FROM: " + host + " on port " + port + " " + data.Length.ToString() + " bytes ");
     }
 
     //Send an UDP-Packet
@@ -163,12 +165,15 @@ public class UDPCommunication : Singleton<UDPCommunication>
         {
             var icp = NetworkInformation.GetInternetConnectionProfile();
 
+         Console3D.Instance.LOGit("icp.netadaptor id = " + icp.NetworkAdapter.NetworkAdapterId.ToString());
+
             IP = Windows.Networking.Connectivity.NetworkInformation.GetHostNames()
             .SingleOrDefault(
                 hn =>
                     hn.IPInformation?.NetworkAdapter != null && hn.IPInformation.NetworkAdapter.NetworkAdapterId
                     == icp.NetworkAdapter.NetworkAdapterId);
-
+         Console3D.Instance.LOGit("IP is= " + IP.ToString());
+         Console3D.Instance.LOGit("my socket is = " + IP.ToString() + " " + internalPort);
             await socket.BindEndpointAsync(IP, internalPort);
         }
         catch (Exception e)
