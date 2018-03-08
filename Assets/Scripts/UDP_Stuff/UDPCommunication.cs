@@ -178,7 +178,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
             return;
         }
 
-            SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
+            //SendUDPMessage(externalIP, externalPort, Encoding.UTF8.GetBytes(PingMessage));
 
     }
 
