@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GameUDP.unity
     guid: 775166c1df8a19447a182908c824704c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ServerUDP.unity
     guid: 0a1c2a422437a224eb459097e1cfa0f2
+  - enabled: 1
+    path: Assets/Scenes/ReceivUDP.unity
+    guid: 6d80ea26861b9e24cac2f03200bbf4dd
