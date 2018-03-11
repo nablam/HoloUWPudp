@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114918788847479740}
   - component: {fileID: 114142948017264532}
   m_Layer: 0
-  m_Name: CommGo_2textmeshs
+  m_Name: CommGo_2textmeshsSendRec
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
