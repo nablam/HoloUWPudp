@@ -146,6 +146,27 @@ public class GameSettings : MonoBehaviour {
     #endregion
 
 
+    #region UDPnetworking
+    string _ip_Holo_01 = "192.168.1.201";
+    public string GetIP_Holo_01() { return _ip_Holo_01; }
+
+    string _ip_Holo_02 = "192.168.1.202";
+    public string GetIP_Holo_02() { return _ip_Holo_02; }
+
+    string _ip_MSI = "192.168.1.2";
+    public string GetIP_MSI() { return _ip_MSI; }
+
+    string _ip_Jul = "192.168.1.3";
+    public string GetIP_JUL() { return _ip_Jul; }
+
+    string _LowIp_ListenPort = "12345";
+    public string GetPort_LowIp_Listen() { return _LowIp_ListenPort; }
+
+    string _HighIp_ListenPort = "12346";
+    public string GetPort_HighIp_Listen() { return _HighIp_ListenPort; }
+    #endregion
+
+
 
     public float targetwaitTime=35.0f;
 

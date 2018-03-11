@@ -7,7 +7,6 @@ public class UDPResponse : MonoBehaviour
 
 
     public TextMesh tm = null;
-    public GameObject CylinderReceiverObj;
 
     public void ResponseToUDPPacket(string incomingIP, string incomingPort, byte[] data)
     {

@@ -45,9 +45,97 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     public bool MeIsServer;
 
+    public UDPmachine MyMachineType;
+
     //my other is a
     public UDPmachine otherMachineType;
 
+    //********************************
+    //  Low ip is Alpha side 
+    //
+    //   furst test MSI <-> jalt
+    //
+    //*******************************
+
+    void BuildAlphaStruct_MSI() {
+        string _MyEAR = "";
+        string _AudienceIP = "";
+        string _AudienceEAR = "";
+        //if im a client , all i need to specify is my listenport which will always be 12345
+        if (MyMachineType==UDPmachine.MSI_2 )
+        {
+            _MyEAR = GameSettings.Instance.GetPort_LowIp_Listen();
+
+            switch (otherMachineType)
+            {
+                case UDPmachine.MSI_2:
+                    _AudienceIP = "";//bad
+                    break;
+                case UDPmachine.Jalt_3:
+                    _AudienceIP = GameSettings.Instance.GetIP_JUL();
+                    break;
+                case UDPmachine.Holo_02:
+                    _AudienceIP = GameSettings.Instance.GetIP_Holo_02();
+                    break;
+                case UDPmachine.Holo_01:
+                    _AudienceIP = GameSettings.Instance.GetIP_Holo_01();
+                    break;
+            }
+            _AudienceEAR = GameSettings.Instance.GetPort_HighIp_Listen();           
+        }
+       
+        internalPort = _MyEAR;
+        externalIP = _AudienceIP;
+        externalPort = _AudienceEAR;
+        UpdateInfoText();
+    }
+    void BuildBravoStruct_JUL() {
+        string _MyEAR = "";
+        string _AudienceIP = "";
+        string _AudienceEAR = "";
+        //if im a client , all i need to specify is my listenport which will always be 12345
+        if (MyMachineType == UDPmachine.Jalt_3)
+        {
+            _MyEAR = GameSettings.Instance.GetPort_HighIp_Listen();
+
+            switch (otherMachineType)
+            {
+                case UDPmachine.MSI_2:
+                    _AudienceIP = GameSettings.Instance.GetIP_MSI();
+                    break;
+                case UDPmachine.Jalt_3:
+                    _AudienceIP = GameSettings.Instance.GetIP_JUL();//baabbabbabdd
+                    break;
+                case UDPmachine.Holo_02:
+                    _AudienceIP = GameSettings.Instance.GetIP_Holo_02();
+                    break;
+                case UDPmachine.Holo_01:
+                    _AudienceIP = GameSettings.Instance.GetIP_Holo_01();
+                    break;
+            }
+            _AudienceEAR = GameSettings.Instance.GetPort_LowIp_Listen();
+        }
+
+        internalPort = _MyEAR;
+        externalIP = _AudienceIP;
+        externalPort = _AudienceEAR;
+        UpdateInfoText();
+    }
+    void BuildMyStructureNew()
+    {
+
+        //if gamesettings is alpha
+        if (GameSettings.Instance.GameMode == ARZGameModes.GameLeft)
+        {
+            BuildAlphaStruct_MSI();
+
+        }
+
+        if (GameSettings.Instance.GameMode == ARZGameModes.GameRight)
+        {
+            BuildBravoStruct_JUL();
+        }
+    }
     void BuildMyStructure()
     {
         string _MyEAR="";
@@ -70,13 +158,13 @@ public class UDPCommunication : Singleton<UDPCommunication>
                 case UDPmachine.MSI_2:
                     _AudienceIP = "192.168.1.7";
                     break;
-                case UDPmachine.Jalt_6:
+                case UDPmachine.Jalt_3:
                     _AudienceIP = "192.168.1.14";
                     break;
-                case UDPmachine.Holo_06:
+                case UDPmachine.Holo_02:
                     _AudienceIP = "192.168.1.15";
                     break;
-                case UDPmachine.Holo_15:
+                case UDPmachine.Holo_01:
                     _AudienceIP = "192.168.1.10";
                     break;
             }
@@ -108,7 +196,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     private void Awake()
     {
-        BuildMyStructure();
+        BuildMyStructureNew();
     }
 
 #if !UNITY_EDITOR

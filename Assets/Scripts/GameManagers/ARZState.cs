@@ -132,9 +132,9 @@ public enum ReloadMeterState {
 public enum UDPmachine
 {
     MSI_2,
-    Jalt_6,
-    Holo_15,
-    Holo_06,
+    Jalt_3,
+    Holo_01,
+    Holo_02,
  
 }
 
