@@ -57,7 +57,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
         if (!MeIsServer)
         {
             _MyEAR = "12345";
-            _AudienceIP = "192.168.1.2";
+            _AudienceIP = "192.168.1.7";
             _AudienceEAR = "12346";
         }
         else
@@ -68,15 +68,17 @@ public class UDPCommunication : Singleton<UDPCommunication>
             switch (otherMachineType)
             {
                 case UDPmachine.MSI_2:
-                    _AudienceIP = "192.168.1.2";
+                    _AudienceIP = "192.168.1.7";
                     break;
                 case UDPmachine.Jalt_6:
-                    _AudienceIP = "192.168.1.6";
+                    _AudienceIP = "192.168.1.14";
                     break;
-                case UDPmachine.Holo_5:
-                    _AudienceIP = "192.168.1.5";
+                case UDPmachine.Holo_06:
+                    _AudienceIP = "192.168.1.15";
                     break;
-
+                case UDPmachine.Holo_15:
+                    _AudienceIP = "192.168.1.10";
+                    break;
             }
 
         }

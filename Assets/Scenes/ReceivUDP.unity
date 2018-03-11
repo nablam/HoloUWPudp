@@ -300,6 +300,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 102394435896641658, guid: 21543f7f8af9b1e4abb9f5d0f952232d,
+        type: 2}
+      propertyPath: m_Text
+      value: received message
+      objectReference: {fileID: 0}
+    - target: {fileID: 102394435896641658, guid: 21543f7f8af9b1e4abb9f5d0f952232d,
+        type: 2}
+      propertyPath: m_Color.rgba
+      value: 4280024847
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21543f7f8af9b1e4abb9f5d0f952232d, type: 2}
   m_IsPrefabParent: 0

@@ -133,7 +133,8 @@ public enum UDPmachine
 {
     MSI_2,
     Jalt_6,
-    Holo_5,
+    Holo_15,
+    Holo_06,
  
 }
 
