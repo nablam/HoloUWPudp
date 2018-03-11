@@ -11,9 +11,22 @@ public class UDPResponse : MonoBehaviour
 
     public void ResponseToUDPPacket(string incomingIP, string incomingPort, byte[] data)
     {
+        string messageSTRreceived= System.Text.Encoding.UTF8.GetString(data);
+        if (tm != null) {
+            tm.text = messageSTRreceived;
+        }
+        if (messageSTRreceived.Length > 2) {
+            if (messageSTRreceived[0] == '#') {
 
-        if (tm != null)
-            tm.text = System.Text.Encoding.UTF8.GetString(data);
+
+            }else
+                 if (messageSTRreceived[0] == '$')
+            {
+
+
+            }
+
+        }
 
 #if !UNITY_EDITOR
 
