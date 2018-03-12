@@ -7,12 +7,15 @@ public class UDPResponse : MonoBehaviour
 
 
     public TextMesh tm = null;
+    public FakeGameManager fgm;
+
 
     public void ResponseToUDPPacket(string incomingIP, string incomingPort, byte[] data)
     {
         string messageSTRreceived= System.Text.Encoding.UTF8.GetString(data);
         if (tm != null) {
             tm.text = messageSTRreceived;
+            fgm.Call_IHeardOtherPlayerStreakMax();
         }
         if (messageSTRreceived.Length > 2) {
             if (messageSTRreceived[0] == '#') {
