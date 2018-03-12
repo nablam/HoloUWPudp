@@ -123,7 +123,10 @@ public class UDPCommunication : Singleton<UDPCommunication>
     }
     void BuildMyStructureNew()
     {
-
+        if (GameSettings.Instance == null) {
+            Console3D.Instance.LOGit("no gamesettings ");
+            return;
+        }
         //if gamesettings is alpha
         if (GameSettings.Instance.GameMode == ARZGameModes.GameLeft)
         {
@@ -196,7 +199,7 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     private void Awake()
     {
-        BuildMyStructureNew();
+        //BuildMyStructureNew();
     }
 
 #if !UNITY_EDITOR
@@ -241,8 +244,8 @@ public class UDPCommunication : Singleton<UDPCommunication>
 
     async void Start()
     {
-    
-      
+        BuildMyStructureNew();
+
 
 
         Debug.Log("Waiting for a connection...");

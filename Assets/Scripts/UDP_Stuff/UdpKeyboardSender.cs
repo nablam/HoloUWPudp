@@ -5,7 +5,7 @@ using UnityEngine;
 public class UdpKeyboardSender : MonoBehaviour {
 
     public UDPCommunication UdpCOMM;
-    public TextDisplay TextDisplayer;
+   // public TextDisplay TextDisplayer;
 
     int cnt = 0;
 
@@ -25,7 +25,7 @@ public class UdpKeyboardSender : MonoBehaviour {
             if (cnt % 1 == 0)
             {
                 UdpCOMM.SendUDPMessage(UdpCOMM.GetExternalIP(), UdpCOMM.GetExternalPort(), Encoding.UTF8.GetBytes("auto send " + cnt.ToString()));
-                TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
+               // TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
 
             }
 
@@ -36,7 +36,7 @@ public class UdpKeyboardSender : MonoBehaviour {
                 cnt++;
                 UdpCOMM.SendUDPMessage(UdpCOMM.GetExternalIP(), UdpCOMM.GetExternalPort(), Encoding.UTF8.GetBytes("auto send " + cnt.ToString()));
 
-                TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
+               // TextDisplayer.DisplayToTextMesh("auto send " + cnt.ToString());
             }
         }
 
