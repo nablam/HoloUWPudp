@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticDebug : Singleton<UDPCommunication>
+public class StaticDebug : Singleton<StaticDebug>
 {
     public TextMesh DebugMesh;
 	// Use this for initialization

@@ -19,10 +19,10 @@ public class UDPMessageEvent : UnityEvent<string, string, byte[]>
 
 }
 
-public class UDPCommunication : Singleton<UDPCommunication>
+public class UDPCommunication : MonoBehaviour
 {
 
-    public TextMesh MyInfo;
+     public TextMesh MyInfo;
      string internalPort = "";
 
      string externalIP = "";
@@ -181,15 +181,28 @@ public class UDPCommunication : Singleton<UDPCommunication>
         UpdateInfoText();
     }
 
+    void buildInfoText() {
+        string _info = " I am a " + MyMachineType.ToString() + " <-con--> " + otherMachineType.ToString();
+        _info += " \n  listening on internal  port=" + internalPort;
+        _info += " \n  --------------------------------------------" ;
+        _info += " \n  sending to external ip   " + externalIP;
+        _info += " \n  sending to external port " + externalPort;
+
+
+
+        MyInfo.text = _info;
+    }
+
     void UpdateInfoText() {
-        if (!MeIsServer)
-        {
+        buildInfoText();
+        //if (!MeIsServer)
+        //{
            
-            MyInfo.text = "listening to " + otherMachineType.ToString() + " on my internal port " + internalPort;
-        }
-        else {
-            MyInfo.text = "Serving" + otherMachineType.ToString() + " at  " + externalIP+  " to its port "+ externalPort;
-        }
+        //    MyInfo.text = "listening to " + otherMachineType.ToString() + " on my internal port " + internalPort;
+        //}
+        //else {
+        //    MyInfo.text = "Serving" + otherMachineType.ToString() + " at  " + externalIP+  " to its port "+ externalPort;
+        //}
     }
  
 

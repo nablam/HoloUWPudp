@@ -69,7 +69,7 @@ public class MoveWithMouse : MonoBehaviour {
     void Update () {
 
         string posstr = "" + this.transform.position.x + "|" + this.transform.position.y + "|" + this.transform.position.z;
-       UDPCommunication.Instance.SendUDPMessage(UDPCommunication.Instance.GetExternalIP(), UDPCommunication.Instance.GetExternalPort(), Encoding.UTF8.GetBytes(posstr));
+    //   UDPCommunication.Instance.SendUDPMessage(UDPCommunication.Instance.GetExternalIP(), UDPCommunication.Instance.GetExternalPort(), Encoding.UTF8.GetBytes(posstr));
         lockBoundaries();
             DoMoveX();
             DoMoveY();
